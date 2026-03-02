@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Prasoon ❤️ Pawani | Luxury Wedding</title>
+<title>Prasoon ❤️ Pawani</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cinzel:wght@600&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
@@ -22,7 +22,7 @@ body{
 .top-sanskrit{
     width:100%;
     text-align:center;
-    padding:15px 10px;
+    padding:25px 15px;
     font-family:'Cinzel',serif;
     color:#d4af37;
     letter-spacing:2px;
@@ -178,7 +178,8 @@ body{
 
 <!-- VERY TOP SANSKRIT -->
 <div class="top-sanskrit">
-श्री महावीराय नमः &nbsp;&nbsp;|&nbsp;&nbsp; श्री गणेशाय नमः
+श्री महावीराय नमः <br>
+श्री गणेशाय नमः
 </div>
 
 <!-- HERO -->
@@ -247,8 +248,12 @@ audio.volume=Math.min(audio.volume+step,target);
 }
 
 window.addEventListener("load",()=>{
-fadeIn(bg,0.5,5000);
-fadeIn(shehnai,0.4,6000);
+if(bg.paused){bg.play();shehnai.play();
+bg.muted = false;
+shehnai.muted = false;
+
+fadeIn(bg, 0.5, 5000);
+fadeIn(shehnai, 0.4, 6000);}
 });
 
 function toggleMusic(){
