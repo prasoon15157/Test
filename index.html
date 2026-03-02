@@ -28,6 +28,37 @@ body{
     letter-spacing:2px;
     font-size:18px;
 }
+/* SCROLL DOWN ARROW */
+.scroll-down{
+    position:absolute;
+    bottom:40px;
+    left:50%;
+    transform:translateX(-50%);
+    cursor:pointer;
+    z-index:5;
+}
+
+.scroll-down span{
+    display:block;
+    width:22px;
+    height:22px;
+    border-bottom:3px solid #d4af37;
+    border-right:3px solid #d4af37;
+    transform:rotate(45deg);
+    animation:scrollBounce 2s infinite;
+}
+
+@keyframes scrollBounce{
+    0%{ transform:rotate(45deg) translate(0,0); opacity:0.7; }
+    50%{ transform:rotate(45deg) translate(8px,8px); opacity:1; }
+    100%{ transform:rotate(45deg) translate(0,0); opacity:0.7; }
+}
+
+/* Make section relative so arrow positions properly */
+.hero,
+.section{
+    position:relative;
+}
 
 /* GOLD FRAME */
 .gold-frame{
@@ -68,9 +99,10 @@ body{
     background:url('https://cdn.pixabay.com/photo/2016/11/29/05/08/architecture-1868667_1280.jpg') center/cover no-repeat;
     display:flex;
     justify-content:center;
-    align-items:center;
     text-align:center;
     position:relative;
+    align-items:flex-start;
+    padding-top:180px; /* adjust this value if needed */
 }
 .hero::after{
     content:"";
@@ -87,7 +119,14 @@ body{
     font-size:80px;
     color:#d4af37;
 }
-
+.blessing-line{
+    font-family:'Cinzel', serif;
+    font-size:20px;
+    letter-spacing:3px;
+    color:#ffffffd9;
+    margin-bottom:18px;
+    text-transform:uppercase;
+}
 /* 🌸 FLOATING FLOWER PETALS */
 .petal{
     position:fixed;
@@ -244,6 +283,7 @@ body{
 
 <section class="hero">
 <div class="hero-content">
+
 <h1 class="luxury-names">Prasoon & Pawani</h1>
 
 <div class="hero-hashtag">
@@ -251,16 +291,20 @@ body{
 </div>
 
 </div>
+<div class="scroll-down" onclick="scrollToNext(this)">
+  <span></span>
+</div>
 </section>
-
 <section class="section">
 <div class="card">
-<h2>You're Invited To The</h2>
+<p class="blessing-line">With Divine Grace and Family Blessings</p>
+<h2>We Invite You To The</h2>
 <h1>Roka Ceremony</h1>
+
 
 <div class="event-details">
 📅 <strong>Date:</strong> 14th March, 2026<br>
-⏰ <strong>Time:</strong> 7:00 PM Onwards<br>
+⏰ <strong>Time:</strong> 5:00 PM Onwards<br>
 📍 <strong>Venue:</strong> Shubh Lagan, Sector 25, Panipat
 </div>
 
@@ -277,6 +321,9 @@ href="https://wa.me/?text=Join%20us%20for%20the%20Roka%20Ceremony%20of%20Prasoon
 </a>
 
 </div>
+<div class="scroll-down" onclick="scrollToNext(this)">
+  <span></span>
+</div>
 </section>
 
 <section class="section">
@@ -284,7 +331,7 @@ href="https://wa.me/?text=Join%20us%20for%20the%20Roka%20Ceremony%20of%20Prasoon
 </section>
 
 <audio id="bgMusic" loop preload="auto" muted playsinline>
-    <source src="Kesariya Brahmastra 320 Kbps.mp3" type="audio/mpeg">
+    <source src="Pardesiya Param Sundari 320 Kbps.mp3" type="audio/mpeg">
 </audio>
 
 <button class="music-btn" onclick="toggleMusic()">🎵</button>
