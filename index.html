@@ -18,7 +18,7 @@ body{
     scroll-behavior:smooth;
 }
 
-/* ===== TOP SANSKRIT ===== */
+/* TOP SANSKRIT */
 .top-sanskrit{
     width:100%;
     text-align:center;
@@ -29,7 +29,7 @@ body{
     font-size:18px;
 }
 
-/* ===== GOLD FRAME ===== */
+/* GOLD FRAME */
 .gold-frame{
     position:fixed;
     top:15px;
@@ -62,7 +62,7 @@ body{
     100%{background-position:0% 50%;}
 }
 
-/* ===== HERO ===== */
+/* HERO */
 .hero{
     height:100vh;
     background:url('https://cdn.pixabay.com/photo/2016/11/29/05/08/architecture-1868667_1280.jpg') center/cover no-repeat;
@@ -87,15 +87,76 @@ body{
     font-size:80px;
     color:#d4af37;
 }
+
+/* 🌸 FLOATING FLOWER PETALS */
+.petal{
+    position:fixed;
+    top:-50px;
+    width:18px;
+    height:18px;
+    background:radial-gradient(circle at 30% 30%, #fff5cc, #d4af37);
+    border-radius:50%;
+    opacity:0.8;
+    pointer-events:none;
+    z-index:0;
+    animation:fall linear infinite;
+}
+
+@keyframes fall{
+    0%{
+        transform:translateY(-50px) rotate(0deg);
+        opacity:0.9;
+    }
+    100%{
+        transform:translateY(110vh) rotate(360deg);
+        opacity:0;
+    }
+}
+
+/* HASHTAG */
 .hero-hashtag{
     margin-top:20px;
     font-family:'Cinzel',serif;
     font-size:22px;
     letter-spacing:4px;
-    color:#d4af37;
+    color:white;
+    position:relative;
+    display:inline-block;
 }
 
-/* ===== SECTION ===== */
+/* GOLD SHIMMER */
+.highlight{
+    font-size:28px;
+    font-weight:600;
+    background:linear-gradient(90deg,#d4af37,#ffffff,#d4af37);
+    background-size:200%;
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    animation:shimmer 3s linear infinite;
+    position:relative;
+}
+
+@keyframes shimmer{
+    from{background-position:-200%;}
+    to{background-position:200%;}
+}
+
+/* SPARKLE EFFECT */
+.highlight::after{
+    content:"✨";
+    position:absolute;
+    top:-10px;
+    right:-12px;
+    font-size:14px;
+    animation:sparkle 1.8s infinite ease-in-out;
+}
+
+@keyframes sparkle{
+    0%,100%{opacity:0; transform:scale(0.5);}
+    50%{opacity:1; transform:scale(1);}
+}
+
+/* SECTION */
 .section{
     min-height:100vh;
     display:flex;
@@ -125,7 +186,7 @@ body{
     line-height:1.8;
 }
 
-/* ===== MAP EMBED ===== */
+/* MAP */
 .map-container{
     margin-top:25px;
     border-radius:20px;
@@ -133,7 +194,7 @@ body{
     border:1px solid rgba(212,175,55,0.4);
 }
 
-/* ===== WHATSAPP BUTTON ===== */
+/* WHATSAPP */
 .whatsapp-btn{
     display:inline-block;
     margin-top:25px;
@@ -149,14 +210,14 @@ body{
     transform:scale(1.05);
 }
 
-/* ===== LOADING ===== */
+/* LOADING */
 .loading{
     font-family:'Great Vibes',cursive;
     font-size:45px;
     color:#d4af37;
 }
 
-/* ===== MUSIC BUTTON ===== */
+/* MUSIC BUTTON */
 .music-btn{
     position:fixed;
     top:25px;
@@ -176,21 +237,22 @@ body{
 
 <div class="gold-frame"></div>
 
-<!-- VERY TOP SANSKRIT -->
 <div class="top-sanskrit">
 श्री महावीराय नमः <br>
 श्री गणेशाय नमः
 </div>
 
-<!-- HERO -->
 <section class="hero">
 <div class="hero-content">
 <h1 class="luxury-names">Prasoon & Pawani</h1>
-<div class="hero-hashtag">#PerfectlyP</div>
+
+<div class="hero-hashtag">
+#<span class="highlight">P</span>erfectly<span class="highlight">P</span>
+</div>
+
 </div>
 </section>
 
-<!-- ROKA CARD WITH VENUE + MAP + WHATSAPP -->
 <section class="section">
 <div class="card">
 <h2>You're Invited To The</h2>
@@ -217,49 +279,80 @@ href="https://wa.me/?text=Join%20us%20for%20the%20Roka%20Ceremony%20of%20Prasoon
 </div>
 </section>
 
-<!-- WEDDING LOADING -->
 <section class="section">
 <div class="loading">💍 Wedding Loading Soon...</div>
 </section>
 
-<!-- MUSIC -->
-<audio id="bgMusic" loop autoplay>
+<audio id="bgMusic" loop preload="auto" muted playsinline>
     <source src="Pardesiya Param Sundari 320 Kbps.mp3" type="audio/mpeg">
 </audio>
-<audio id="shehnaiMusic" loop autoplay>
-    <source src="Pardesiya Param Sundari 320 Kbps.mp3" type="audio/mpeg">
-</audio>
+
 <button class="music-btn" onclick="toggleMusic()">🎵</button>
 
 <script>
-let bg=document.getElementById("bgMusic");
-let shehnai=document.getElementById("shehnaiMusic");
+const bg = document.getElementById("bgMusic");
 
-bg.volume=0;
-shehnai.volume=0;
-
-function fadeIn(audio,target,duration){
-let step=target/(duration/100);
-let fade=setInterval(()=>{
-if(audio.volume<target){
-audio.volume=Math.min(audio.volume+step,target);
-}else clearInterval(fade);
-},100);
-}
-
-window.addEventListener("load",()=>{
-if(bg.paused){bg.play();shehnai.play();
-bg.muted = false;
-shehnai.muted = false;
-
-fadeIn(bg, 0.5, 5000);
-fadeIn(shehnai, 0.4, 6000);}
+// Start muted autoplay (allowed)
+window.addEventListener("load", () => {
+    bg.play().then(() => {
+        cinematicFadeIn();
+    }).catch(()=>{});
 });
 
-function toggleMusic(){
-if(bg.paused){bg.play();shehnai.play();}
-else{bg.pause();shehnai.pause();}
+// Smooth cinematic fade-in
+function cinematicFadeIn(){
+    bg.muted = false;
+    bg.volume = 0;
+    let target = 0.6;
+    let duration = 5000;
+    let step = target / (duration / 100);
+
+    let fade = setInterval(() => {
+        if(bg.volume < target){
+            bg.volume = Math.min(bg.volume + step, target);
+        } else {
+            clearInterval(fade);
+        }
+    },100);
 }
+
+// iPhone unlock fallback (invisible)
+function unlockAudio(){
+    if(bg.paused){
+        bg.play().then(()=> cinematicFadeIn()).catch(()=>{});
+    }
+    document.removeEventListener("touchstart", unlockAudio);
+    document.removeEventListener("click", unlockAudio);
+    document.removeEventListener("scroll", unlockAudio);
+}
+
+document.addEventListener("touchstart", unlockAudio, {once:true});
+document.addEventListener("click", unlockAudio, {once:true});
+document.addEventListener("scroll", unlockAudio, {once:true});
+
+// Manual toggle button
+function toggleMusic(){
+    if(bg.paused){
+        bg.play();
+    } else {
+        bg.pause();
+    }
+}
+
+/* 🌸 PETALS */
+function createPetal(){
+    const petal = document.createElement("div");
+    petal.classList.add("petal");
+
+    petal.style.left = Math.random() * 100 + "vw";
+    petal.style.animationDuration = (6 + Math.random() * 6) + "s";
+    petal.style.opacity = Math.random();
+
+    document.body.appendChild(petal);
+    setTimeout(() => petal.remove(), 12000);
+}
+
+setInterval(createPetal, 500);
 </script>
 
 </body>
