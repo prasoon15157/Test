@@ -28,38 +28,54 @@ body{
     letter-spacing:2px;
     font-size:18px;
 }
-/* SCROLL DOWN ARROW */
-.scroll-down{
-    position:absolute;
-    bottom:40px;
+/* SCROLL INDICATOR */
+.scroll-indicator{
+    position:fixed;
+    bottom:35px;
     left:50%;
     transform:translateX(-50%);
+    text-align:center;
     cursor:pointer;
-    z-index:5;
+    z-index:50;
+    transition:opacity 0.4s ease;
 }
 
-.scroll-down span{
-    display:block;
-    width:22px;
-    height:22px;
-    border-bottom:3px solid #d4af37;
-    border-right:3px solid #d4af37;
-    transform:rotate(45deg);
-    animation:scrollBounce 2s infinite;
+.scroll-text{
+    font-family:'Cinzel', serif;
+    font-size:14px;
+    letter-spacing:4px;
+    color:#d4af37;
+    margin-bottom:10px;
 }
 
-@keyframes scrollBounce{
-    0%{ transform:rotate(45deg) translate(0,0); opacity:0.7; }
-    50%{ transform:rotate(45deg) translate(8px,8px); opacity:1; }
-    100%{ transform:rotate(45deg) translate(0,0); opacity:0.7; }
-}
-
-/* Make section relative so arrow positions properly */
-.hero,
-.section{
+/* GOLD LINE */
+.scroll-line{
     position:relative;
+    width:2px;
+    height:0px;
+    margin:auto;
+    background:linear-gradient(to bottom, #d4af37, #fff5cc, #d4af37);
+    background-size:100% 200%;
+    animation:goldFlow 2s linear infinite;
 }
 
+/* ARROW HEAD */
+.arrow-head{
+    position:absolute;
+    bottom:-6px;
+    left:50%;
+    transform:translateX(-50%) rotate(45deg);
+    width:12px;
+    height:12px;
+    border-right:3px solid #d4af37;
+    border-bottom:3px solid #d4af37;
+}
+
+/* GOLD FLOW ANIMATION */
+@keyframes goldFlow{
+    0%{ background-position:0% 0%; }
+    100%{ background-position:0% 200%; }
+}
 /* GOLD FRAME */
 .gold-frame{
     position:fixed;
@@ -290,9 +306,14 @@ body{
 #<span class="highlight">P</span>erfectly<span class="highlight">P</span>
 </div>
 
-</div>
-<div class="scroll-down" onclick="scrollToNext(this)">
-  <span></span>
+<div class="scroll-indicator" onclick="scrollToNext()">
+  <div class="scroll-text">Scroll Down</div>
+  <div class="scroll-line">
+      <span class="arrow-head"></span>
+      <span class="arrow-head"></span>
+      <span class="arrow-head"></span>
+      <span class="arrow-head"></span>
+  </div>
 </div>
 </section>
 <section class="section">
@@ -319,11 +340,6 @@ width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy">
 href="https://wa.me/?text=Join%20us%20for%20the%20Roka%20Ceremony%20of%20Prasoon%20and%20Pawani%20on%2014th%20March%202026%20at%207PM%20at%20Shubh%20Lagan%2C%20Sector%2025%2C%20Panipat.%20Location:%20https://www.google.com/maps?q=Shubh+Lagan+Sector+25+Panipat">
 📲 Share Location on WhatsApp
 </a>
-
-</div>
-<div class="scroll-down" onclick="scrollToNext(this)">
-  <span></span>
-</div>
 </section>
 
 <section class="section">
@@ -400,6 +416,27 @@ function createPetal(){
 }
 
 setInterval(createPetal, 500);
+
+function scrollToNext(){
+    const sections = document.querySelectorAll("section");
+
+    for(let i=0; i<sections.length; i++){
+        if(sections[i].offsetTop > window.scrollY + 10){
+            sections[i].scrollIntoView({behavior:"smooth"});
+            break;
+        }
+    }
+}
+
+// Hide permanently after first scroll
+let hasScrolled = false;
+
+window.addEventListener("scroll", () => {
+    if(!hasScrolled && window.scrollY > 50){
+        document.querySelector(".scroll-indicator").style.opacity = "0";
+        hasScrolled = true;
+    }
+});
 </script>
 
 </body>
