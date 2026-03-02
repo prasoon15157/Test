@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prasoon ❤️ Pawani | Luxury Wedding</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cinzel:wght@600&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+
+body{
+    font-family:'Poppins',sans-serif;
+    background:#0f0f0f;
+    color:white;
+    overflow-x:hidden;
+    scroll-behavior:smooth;
+}
+
+/* ===== TOP SANSKRIT ===== */
+.top-sanskrit{
+    width:100%;
+    text-align:center;
+    padding:15px 10px;
+    font-family:'Cinzel',serif;
+    color:#d4af37;
+    letter-spacing:2px;
+    font-size:18px;
+}
+
+/* ===== GOLD FRAME ===== */
+.gold-frame{
+    position:fixed;
+    top:15px;
+    left:15px;
+    right:15px;
+    bottom:15px;
+    border-radius:20px;
+    pointer-events:none;
+    z-index:1000;
+}
+.gold-frame::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    border-radius:20px;
+    padding:2px;
+    background:linear-gradient(120deg,#d4af37,#fff5cc,#d4af37,#b8860b);
+    background-size:300% 300%;
+    animation:goldMove 6s linear infinite;
+
+    -webkit-mask:
+        linear-gradient(#000 0 0) content-box,
+        linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+            mask-composite: exclude;
+}
+@keyframes goldMove{
+    0%{background-position:0% 50%;}
+    50%{background-position:100% 50%;}
+    100%{background-position:0% 50%;}
+}
+
+/* ===== HERO ===== */
+.hero{
+    height:100vh;
+    background:url('https://cdn.pixabay.com/photo/2016/11/29/05/08/architecture-1868667_1280.jpg') center/cover no-repeat;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    position:relative;
+}
+.hero::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:rgba(0,0,0,0.65);
+}
+.hero-content{
+    position:relative;
+    z-index:2;
+}
+.luxury-names{
+    font-family:'Great Vibes',cursive;
+    font-size:80px;
+    color:#d4af37;
+}
+.hero-hashtag{
+    margin-top:20px;
+    font-family:'Cinzel',serif;
+    font-size:22px;
+    letter-spacing:4px;
+    color:#d4af37;
+}
+
+/* ===== SECTION ===== */
+.section{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:60px 20px;
+    text-align:center;
+}
+.card{
+    background:rgba(255,255,255,0.07);
+    backdrop-filter:blur(12px);
+    border:1px solid rgba(212,175,55,0.4);
+    padding:70px;
+    border-radius:25px;
+    box-shadow:0 25px 80px rgba(0,0,0,0.7);
+    max-width:900px;
+    width:95%;
+}
+.card h1{
+    font-family:'Great Vibes',cursive;
+    font-size:60px;
+    color:#d4af37;
+}
+.event-details{
+    margin-top:25px;
+    font-size:20px;
+    line-height:1.8;
+}
+
+/* ===== MAP EMBED ===== */
+.map-container{
+    margin-top:25px;
+    border-radius:20px;
+    overflow:hidden;
+    border:1px solid rgba(212,175,55,0.4);
+}
+
+/* ===== WHATSAPP BUTTON ===== */
+.whatsapp-btn{
+    display:inline-block;
+    margin-top:25px;
+    padding:14px 30px;
+    background:#25D366;
+    color:white;
+    border-radius:30px;
+    text-decoration:none;
+    font-weight:bold;
+    transition:0.3s;
+}
+.whatsapp-btn:hover{
+    transform:scale(1.05);
+}
+
+/* ===== LOADING ===== */
+.loading{
+    font-family:'Great Vibes',cursive;
+    font-size:45px;
+    color:#d4af37;
+}
+
+/* ===== MUSIC BUTTON ===== */
+.music-btn{
+    position:fixed;
+    top:25px;
+    right:25px;
+    background:#d4af37;
+    border:none;
+    border-radius:50%;
+    width:45px;
+    height:45px;
+    cursor:pointer;
+    z-index:2000;
+}
+</style>
+</head>
+
+<body>
+
+<div class="gold-frame"></div>
+
+<!-- VERY TOP SANSKRIT -->
+<div class="top-sanskrit">
+श्री महावीराय नमः &nbsp;&nbsp;|&nbsp;&nbsp; श्री गणेशाय नमः
+</div>
+
+<!-- HERO -->
+<section class="hero">
+<div class="hero-content">
+<h1 class="luxury-names">Prasoon & Pawani</h1>
+<div class="hero-hashtag">#PerfectlyP</div>
+</div>
+</section>
+
+<!-- ROKA CARD WITH VENUE + MAP + WHATSAPP -->
+<section class="section">
+<div class="card">
+<h2>You're Invited To The</h2>
+<h1>Roka Ceremony</h1>
+
+<div class="event-details">
+📅 <strong>Date:</strong> 14th March, 2026<br>
+⏰ <strong>Time:</strong> 7:00 PM Onwards<br>
+📍 <strong>Venue:</strong> Shubh Lagan, Sector 25, Panipat
+</div>
+
+<div class="map-container">
+<iframe 
+src="https://www.google.com/maps?q=Shubh+Lagan+Sector+25+Panipat&output=embed"
+width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy">
+</iframe>
+</div>
+
+<a class="whatsapp-btn" target="_blank"
+href="https://wa.me/?text=Join%20us%20for%20the%20Roka%20Ceremony%20of%20Prasoon%20and%20Pawani%20on%2014th%20March%202026%20at%207PM%20at%20Shubh%20Lagan%2C%20Sector%2025%2C%20Panipat.%20Location:%20https://www.google.com/maps?q=Shubh+Lagan+Sector+25+Panipat">
+📲 Share Location on WhatsApp
+</a>
+
+</div>
+</section>
+
+<!-- WEDDING LOADING -->
+<section class="section">
+<div class="loading">💍 Wedding Loading Soon...</div>
+</section>
+
+<!-- MUSIC -->
+<audio id="bgMusic" loop autoplay>
+    <source src="Pardesiya Param Sundari 320 Kbps.mp3" type="audio/mpeg">
+</audio>
+<audio id="shehnaiMusic" loop autoplay>
+    <source src="Pardesiya Param Sundari 320 Kbps.mp3" type="audio/mpeg">
+</audio>
+<button class="music-btn" onclick="toggleMusic()">🎵</button>
+
+<script>
+let bg=document.getElementById("bgMusic");
+let shehnai=document.getElementById("shehnaiMusic");
+
+bg.volume=0;
+shehnai.volume=0;
+
+function fadeIn(audio,target,duration){
+let step=target/(duration/100);
+let fade=setInterval(()=>{
+if(audio.volume<target){
+audio.volume=Math.min(audio.volume+step,target);
+}else clearInterval(fade);
+},100);
+}
+
+window.addEventListener("load",()=>{
+fadeIn(bg,0.5,5000);
+fadeIn(shehnai,0.4,6000);
+});
+
+function toggleMusic(){
+if(bg.paused){bg.play();shehnai.play();}
+else{bg.pause();shehnai.pause();}
+}
+</script>
+
+</body>
+</html>
