@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -465,6 +465,314 @@ window.addEventListener("scroll", () => {
         hasScrolled = true;
     }
 });
+</script>
+
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prasoon ❤️ Pawani</title>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cinzel:wght@600&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+    font-family:'Poppins',sans-serif;
+    background:#0f0f0f;
+    color:white;
+    overflow-x:hidden;
+    scroll-behavior:smooth;
+}
+
+/* LANDING PAGE */
+#landing{
+    position:fixed;
+    inset:0;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    background:#0f0f0f;
+    z-index:9999;
+}
+#landing h1{
+    font-family:'Great Vibes',cursive;
+    font-size:60px;
+    color:#d4af37;
+    margin-bottom:30px;
+}
+#openBtn{
+    padding:20px 50px;
+    font-size:20px;
+    border:none;
+    border-radius:50px;
+    background:#d4af37;
+    color:#0f0f0f;
+    cursor:pointer;
+    transition:0.3s;
+}
+#openBtn:hover{ transform:scale(1.05); }
+
+/* GOLD FRAME */
+.gold-frame{
+    position:fixed;
+    top:15px; left:15px; right:15px; bottom:15px;
+    border-radius:20px;
+    pointer-events:none;
+    z-index:1000;
+}
+.gold-frame::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    border-radius:20px;
+    padding:2px;
+    background:linear-gradient(120deg,#d4af37,#fff5cc,#d4af37,#b8860b);
+    background-size:300% 300%;
+    animation:goldMove 6s linear infinite;
+    -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+            mask-composite: exclude;
+}
+@keyframes goldMove{
+    0%{background-position:0% 50%;}
+    50%{background-position:100% 50%;}
+    100%{background-position:0% 50%;}
+}
+
+/* TOP SANSKRIT */
+.top-sanskrit{
+    width:100%;
+    text-align:center;
+    padding:25px 15px;
+    font-family:'Cinzel',serif;
+    color:#d4af37;
+    letter-spacing:2px;
+    font-size:18px;
+    padding-top:50px;
+}
+
+/* HERO */
+.hero{
+    height:100vh;
+    background:url('https://cdn.pixabay.com/photo/2016/11/29/05/08/architecture-1868667_1280.jpg') center/cover no-repeat;
+    display:flex;
+    justify-content:center;
+    align-items:flex-start;
+    text-align:center;
+    position:relative;
+    padding-top:180px;
+}
+.hero::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:rgba(0,0,0,0.65);
+}
+.hero-content{position:relative;z-index:2;}
+.luxury-names{
+    font-family:'Great Vibes',cursive;
+    font-size:70px;
+    color:#d4af37;
+}
+.hero-hashtag{
+    font-family:'Cinzel',serif;
+    font-size:28px;
+    letter-spacing:4px;
+    color:white;
+    margin-bottom:15px;
+}
+.highlight{
+    font-size:40px;
+    font-weight:600;
+    background:linear-gradient(90deg,#d4af37,#ffffff,#d4af37);
+    background-size:200%;
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    animation:shimmer 3s linear infinite;
+}
+@keyframes shimmer{
+    from{background-position:-200%;}
+    to{background-position:200%;}
+}
+
+/* SECTION */
+.section{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:40px 20px;
+    text-align:center;
+}
+.card{
+    background:rgba(255,255,255,0.07);
+    backdrop-filter:blur(12px);
+    border:1px solid rgba(212,175,55,0.4);
+    padding:60px;
+    border-radius:25px;
+    box-shadow:0 25px 80px rgba(0,0,0,0.7);
+    max-width:900px;
+    width:95%;
+}
+.card h1{ font-family:'Great Vibes',cursive; font-size:55px; color:#d4af37; }
+.event-details{
+    margin-top:25px;
+    font-size:20px;
+    line-height:1.8;
+}
+.map-container{
+    margin-top:25px;
+    border-radius:20px;
+    overflow:hidden;
+}
+.whatsapp-btn{
+    display:inline-block;
+    margin-top:25px;
+    padding:14px 30px;
+    background:#25D366;
+    color:white;
+    border-radius:30px;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+/* PETALS */
+.petal{
+    position:fixed;
+    top:-50px;
+    width:18px;
+    height:18px;
+    background:radial-gradient(circle at 30% 30%, #fff5cc, #d4af37);
+    border-radius:50%;
+    opacity:0.8;
+    pointer-events:none;
+    animation:fall linear infinite;
+}
+@keyframes fall{
+    0%{transform:translateY(-50px) rotate(0deg);opacity:0.9;}
+    100%{transform:translateY(110vh) rotate(360deg);opacity:0;}
+}
+
+/* MUSIC BUTTON */
+.music-btn{
+    position:fixed;
+    top:40px;
+    right:25px;
+    background:#d4af37;
+    border:none;
+    border-radius:50%;
+    width:45px;
+    height:45px;
+    cursor:pointer;
+    z-index:2000;
+}
+</style>
+</head>
+<body>
+
+<!-- LANDING PAGE -->
+<div id="landing">
+<h1>Welcome to Our Celebration</h1>
+<button id="openBtn">Join Us</button>
+</div>
+
+<!-- MAIN CONTENT -->
+<div id="mainContent" style="display:none;">
+
+<div class="gold-frame"></div>
+
+<div class="top-sanskrit">
+श्री महावीराय नमः <br>
+श्री गणेशाय नमः
+</div>
+
+<section class="hero section">
+<div class="hero-content">
+
+<div class="hero-hashtag">#<span class="highlight">P</span>awaniHui<span class="highlight">P</span>rasan</div>
+
+<h1 class="luxury-names">Prasoon & Pawani</h1>
+</div>
+</section>
+
+<section class="section">
+<div class="card">
+<h1>Roka Ceremony</h1>
+<div class="event-details">
+📅 <strong>Date:</strong> 14th March, 2026<br>
+⏰ <strong>Time:</strong> 5:00 PM Onwards<br>
+📍 <strong>Venue:</strong> <a href="https://www.google.com/maps?q=Shubh+Lagan+Sector+25+Panipat" target="_blank" style="color:#d4af37;text-decoration:underline;">Shubh Lagan, Sector 25, Panipat</a>
+</div>
+
+<div class="map-container">
+<iframe 
+src="https://www.google.com/maps?q=Shubh+Lagan+Sector+25+Panipat&output=embed"
+width="100%" height="300" style="border:0;" loading="lazy">
+</iframe>
+</div>
+
+<a class="whatsapp-btn" target="_blank"
+href="https://wa.me/?text=Join%20us%20for%20the%20Roka%20Ceremony%20of%20Prasoon%20and%20Pawani%20on%2014th%20March%202026">
+📲 Share on WhatsApp
+</a>
+</div>
+</section>
+
+<section class="section">
+<div class="card">
+<h1>💍 Wedding Loading Soon...</h1>
+</div>
+</section>
+
+<audio id="bgMusic" loop playsinline>
+<source src="Kesariya Brahmastra 320 Kbps.mp3" type="audio/mpeg">
+</audio>
+
+<button class="music-btn" onclick="toggleMusic()">🎵</button>
+</div> <!-- END mainContent -->
+
+<script>
+const landing = document.getElementById("landing");
+const main = document.getElementById("mainContent");
+const bg = document.getElementById("bgMusic");
+const sections = document.querySelectorAll("#mainContent section");
+let current = 0;
+
+/* OPEN BUTTON: SHOW MAIN CONTENT + PLAY MUSIC */
+document.getElementById("openBtn").addEventListener("click",()=>{
+    landing.style.display="none";
+    main.style.display="block";
+    bg.volume = 0.6;
+    bg.play().catch(()=>{});
+});
+
+/* AUTO SCROLL */
+setInterval(()=>{
+    current++;
+    if(current >= sections.length) current=0;
+    sections[current].scrollIntoView({behavior:"smooth"});
+},4000);
+
+/* MUSIC TOGGLE */
+function toggleMusic(){
+    if(bg.paused){ bg.play(); }
+    else{ bg.pause(); }
+}
+
+/* PETALS */
+function createPetal(){
+    const p = document.createElement("div");
+    p.classList.add("petal");
+    p.style.left = Math.random()*100+"vw";
+    p.style.animationDuration = (6+Math.random()*6)+"s";
+    document.body.appendChild(p);
+    setTimeout(()=>p.remove(),12000);
+}
+setInterval(createPetal,500);
 </script>
 
 </body>
