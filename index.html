@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -39,7 +40,7 @@ margin-bottom:30px;
 }
 
 #openBtn{
-padding:20px 50px;
+padding:18px 45px;
 font-size:20px;
 border:none;
 border-radius:50px;
@@ -73,10 +74,7 @@ background:linear-gradient(120deg,#d4af37,#fff5cc,#d4af37,#b8860b);
 background-size:300% 300%;
 animation:goldMove 6s linear infinite;
 
--webkit-mask:
-linear-gradient(#000 0 0) content-box,
-linear-gradient(#000 0 0);
-
+-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
 -webkit-mask-composite:xor;
 mask-composite:exclude;
 }
@@ -87,11 +85,10 @@ mask-composite:exclude;
 100%{background-position:0% 50%;}
 }
 
-/* TOP SANSKRIT */
+/* SANSKRIT */
 .top-sanskrit{
-width:100%;
 text-align:center;
-padding:40px 15px;
+padding:35px 15px;
 font-family:'Cinzel',serif;
 color:#d4af37;
 letter-spacing:2px;
@@ -100,14 +97,14 @@ font-size:18px;
 
 /* HERO */
 .hero{
-min-height:70vh;
+min-height:45vh;
 background:url('https://cdn.pixabay.com/photo/2016/11/29/05/08/architecture-1868667_1280.jpg') center/cover no-repeat;
 display:flex;
 justify-content:center;
-align-items:flex-start;
+align-items:center;
 text-align:center;
 position:relative;
-padding-top:120px;
+padding:60px 20px;
 }
 
 .hero::after{
@@ -128,64 +125,72 @@ font-size:70px;
 color:#d4af37;
 }
 
-.hero-hashtag{
-font-family:'Cinzel',serif;
-font-size:28px;
-letter-spacing:4px;
-color:white;
-margin-bottom:15px;
-}
-
-/* SECTION */
+/* SECTIONS */
 .section{
-min-height:auto;
 display:flex;
 justify-content:center;
 align-items:center;
-padding:80px 20px;
+padding:40px 20px;
 text-align:center;
 }
 
-.section + .section{
-margin-top:-30px;
+/* LUXURY OVERLAP EFFECT */
+.section:first-of-type{
+margin-top:-120px;
+z-index:5;
+position:relative;
 }
 
+/* CARD */
 .card{
-background:rgba(255,255,255,0.07);
+background:rgba(255,255,255,0.08);
 backdrop-filter:blur(12px);
 border:1px solid rgba(212,175,55,0.4);
 padding:40px 35px;
 border-radius:25px;
 box-shadow:0 25px 80px rgba(0,0,0,0.7);
-max-width:900px;
+max-width:850px;
 width:95%;
+
+display:flex;
+flex-direction:column;
+align-items:center;
+text-align:center;
 }
 
 .card h1{
 font-family:'Great Vibes',cursive;
-font-size:55px;
+font-size:52px;
 color:#d4af37;
+margin-top:5px;
+}
+
+.card h2{
+margin-top:5px;
 }
 
 .event-details{
-margin-top:25px;
-font-size:20px;
-line-height:1.8;
+margin-top:20px;
+font-size:18px;
+line-height:1.7;
+text-align:center;
 }
 
 .blessing-line{
 font-family:'Cinzel',serif;
-font-size:20px;
+font-size:18px;
 letter-spacing:3px;
 color:#ffffffd9;
-margin-bottom:18px;
+margin-bottom:15px;
 text-transform:uppercase;
+text-align:center;
 }
 
+/* WHATSAPP BUTTON */
 .whatsapp-btn{
 display:inline-block;
 margin-top:25px;
-padding:14px 30px;
+padding:12px 26px;
 background:#25D366;
 color:white;
 border-radius:30px;
@@ -197,8 +202,8 @@ font-weight:bold;
 .petal{
 position:fixed;
 top:-50px;
-width:18px;
-height:18px;
+width:16px;
+height:16px;
 background:radial-gradient(circle at 30% 30%, #fff5cc, #d4af37);
 border-radius:50%;
 opacity:0.8;
@@ -225,27 +230,31 @@ cursor:pointer;
 z-index:2000;
 }
 
+/* MOBILE */
 @media(max-width:768px){
 
-.luxury-names{font-size:50px;}
+.luxury-names{font-size:48px;}
 
-.card h1{font-size:40px;}
+.card h1{font-size:38px;}
 
 .event-details{font-size:16px;}
 
+.section:first-of-type{
+margin-top:-90px;
+}
+
 }
 </style>
+
 </head>
 
 <body>
 
-<!-- LANDING PAGE -->
 <div id="landing">
 <h1>Welcome to Our Celebration</h1>
 <button id="openBtn">Join Us</button>
 </div>
 
-<!-- MAIN CONTENT -->
 <div id="mainContent" style="display:none;">
 
 <div class="gold-frame"></div>
@@ -280,8 +289,7 @@ Shubh Lagan, Sector 25, Panipat
 
 <a class="whatsapp-btn" target="_blank"
 href="https://wa.me/?text=Join%20us%20for%20the%20Roka%20Ceremony%20of%20Prasoon%20and%20Pawani%20on%2014th%20March%202026%20at%205PM%20at%20Shubh%20Lagan%2C%20Sector%2025%2C%20Panipat.%20Location:%20https://www.google.com/maps?q=Shubh+Lagan+Sector+25+Panipat">
-📲 Share Location on WhatsApp
-</a>
+📲 Share Location on WhatsApp </a>
 
 </div>
 </section>
@@ -313,29 +321,18 @@ bg.volume=0.6;
 bg.play().catch(()=>{});
 });
 
-/* MUSIC TOGGLE */
-
 function toggleMusic(){
 if(bg.paused){bg.play();}
 else{bg.pause();}
 }
 
-/* PETALS */
-
 function createPetal(){
-
 const p=document.createElement("div");
-
 p.classList.add("petal");
-
 p.style.left=Math.random()*100+"vw";
-
 p.style.animationDuration=(6+Math.random()*6)+"s";
-
 document.body.appendChild(p);
-
 setTimeout(()=>p.remove(),12000);
-
 }
 
 setInterval(createPetal,500);
